@@ -36,7 +36,16 @@ Posteriormente se crea la base de datos bd_peliculas_adalab y la tabla peliculas
 - libreria pandas para mostrar los resultados en DataFrame
 - el método pd.read_sql_query() para mostrar los resultados directamente desde pandas
 
-6. En la segunda parte se realizan consultas a la base de datos Sakila desde MySQL. Para ello se ha usado el lenguaje SQL.
+6. En la segunda parte se realizan consultas a la base de datos Sakila desde MySQL. Para ello se ha usado el lenguaje SQL siguiendo la estructura:
+SELECT para seleccionar columnas a consultar
+FUNCIONES AGREGADAS: COUNT,AVG,SUM,MIN para hacer cálculos sobre los datos
+FROM para indicar que tabla se consulta
+WHERE para establecer filtros a los datos
+OPERADORES DE FILTROS: IN/LIKE para filtrar datos
+JOINS para unir tablas
+GROUP BY para agrupar los datos
+ORDER BY para ordenar los datos de la consulta
+LIMIT para mostrar el numero de datos a mostrar
 
 # Tecnologías utilizadas:
 * Paython
