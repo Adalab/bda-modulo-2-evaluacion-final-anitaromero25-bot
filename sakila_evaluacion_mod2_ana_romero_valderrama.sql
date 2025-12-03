@@ -15,7 +15,7 @@ SELECT title, description
 FROM film
 WHERE description LIKE '%amazing%';
 
-/*4.1. Encuentra el título de todas las películas que tengan una duración mayor a 120 minutos*/
+/*4. Encuentra el título de todas las películas que tengan una duración mayor a 120 minutos*/
 SELECT title,length
 FROM film
 WHERE length > 120;
@@ -55,15 +55,6 @@ GROUP BY customer_id;
 
 /*11.Encuentra la cantidad total de películas alquiladas por categoría y muestra el nombre de la categoría
 junto con el recuento de alquileres.*/
-SELECT COUNT(r.rental_id) AS cantidad_peli_alquiladas,c.name
-FROM rental r
-INNER JOIN inventory i ON r.inventory_id=i.inventory_id
-INNER JOIN film f ON i.film_id = f.film_id
-INNER JOIN film_category fc ON f.film_id = fc.film_id
-INNER JOIN category c ON fc.category_id = c.category_id
-GROUP BY c.name
-ORDER BY cantidad_peli_alquiladas DESC;
-
 SELECT COUNT(r.rental_id) AS total_peliculas_alquiladas,c.name AS categoria
 FROM rental r
 INNER JOIN inventory i ON r.inventory_id=i.inventory_id
