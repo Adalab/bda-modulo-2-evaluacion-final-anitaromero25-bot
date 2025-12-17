@@ -85,3 +85,26 @@ WHERE description LIKE '%dog%' OR '%cat%';
 SELECT title
 FROM film
 WHERE release_year BETWEEN 2005 AND 2010;
+
+
+/* peliculas q tienen menos de 3 copias en inventario*/
+SELECT f.title, COUNT(i.film_id) AS peliculas_en_inventario
+FROM film f
+INNER JOIN inventory i ON f.film_id = i.film_id
+GROUP BY f.title
+HAVING COUNT(i.film_id) < 3;
+
+/* cuantas copias hay en total de cada pelicula*/
+SELECT f.title, COUNT(i.film_id) AS peliculas_en_inventario
+FROM film f
+INNER JOIN inventory i ON f.film_id = i.film_id
+GROUP BY f.title;
+/* cual es la pelicula con mas copias en la tienda 1*/
+SELECT COUNT(*) AS total_pelis, f.title,s.store_id
+FROM film f
+INNER JOIN inventory i ON f.film_id = i.film_id
+INNER JOIN store s ON i.store_id = s.store_id
+WHERE s.store_id = 1
+GROUP BY f.title 
+ORDER BY total_pelis DESC
+LIMIT 1;
